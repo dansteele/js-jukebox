@@ -24,6 +24,9 @@
       function doSearch() {
         var searchTerm = document.getElementById('search').value;
 
+        // Encode spaces
+        searchTerm = searchTerm.replace(" ", "+");
+
         // Search soundcloud for artists
         var request = new XMLHttpRequest();
 
