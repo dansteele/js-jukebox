@@ -17,9 +17,9 @@
     </div>
 
     <script>
-      // SC.initialize({
-      //   client_id: '1095f96607286f7aa1994f523a706996'
-      // });
+      SC.initialize({
+        client_id: 'YOUR KEY HERE'
+      });
 
       function doSearch() {
         var searchTerm = document.getElementById('search').value;
@@ -28,23 +28,12 @@
         searchTerm = searchTerm.replace(" ", "+");
 
         // Search soundcloud for artists
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-          if (request.readyState === 4 && request.status === 200) {
-            var tracks = request.responseXML.children[0].children;
+        SC.get('/tracks', { q: searchTerm, license: 'cc-by-sa' }, function(tracks) {
             for(track in tracks) {
               console.log(tracks[track]);
             }
           }
-        };
-        request.open('GET', 'http://api.soundcloud.com/tracks?client_id=1095f96607286f7aa1994f523a706996&q=' + searchTerm);
-        request.send();
-        // SC.get('/tracks', { q: searchTerm, license: 'cc-by-sa' }, function(tracks) {
-        //   for(track in tracks) {
-        //     console.log(tracks[track]);
-        //   }
-        // });
+        );
       };
     </script>
   </body>
