@@ -1,0 +1,10 @@
+#modal {
+  display: none;
+  width: 70%;
+  height: 70%;
+  background-color: #444;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  border-radius: 10px;
+}
