@@ -4,4 +4,9 @@
 %main
   #search
     %input{:type=>"text", id: "search_field"}
-    %button Go
+    %button{id: "search_button"} Go
+  #results
+    %ul{id: "search_ul"}
+
+%script{:type => "text/javascript",
+        :src  => "javascripts/soundcloud_search.js"}
